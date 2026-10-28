@@ -1,0 +1,30 @@
+---
+layout: runbook
+title: '#4471 · two date causes'
+owner: Michal Knasiecki
+status: proposed
+reviewed: 2026-10-28
+signature: 'Michal Knasiecki'
+---
+
+<script>
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const signature = 'Michal Knasiecki';
+</script>
+
+Ticket #4471 says 412 reports were merged as one issue. The export contains 427 rows because its pages overlap; 15 report IDs repeat identically. Counting each ID once leaves 412 reports and **two causes**, not one.
+
+## Shared parser reads day-first dates as month-first
+
+**379 reports** across 11 tenants belong to this cause. It includes app and email reports and booking-v2 form reports. The shared parser reads every date month-first even though these tenants use day-first locales, so day and month values flip. For example, R-41200 says a 7 April reminder went out on 4 July.
+
+## booking-v3 hint conflicts with tenant date order
+
+**33 reports** belong to this cause, all from booking forms at copper.studio, alder.physio, and pale.harbour. booking-v3 displays `MM/DD/YYYY`, but the form interprets dates in the tenant's day-first order. People follow the hint and the form reads a different date. For example, R-41230 says a client came on 1 June instead of 6 January.
+
+## Triage
+
+Use the report ID to deduplicate overlapping export pages, then classify using the tenant locale, channel, and form version. The intake tag and subject line are not reliable cause labels: reports in each cause carry both intake tags, and many different subjects occur in both groups. The five reports noted as one-day moves remain in the parser group under this classification; they do not form a third cause in the export's cause logic.
+
+<RenderStamp {signature} />
