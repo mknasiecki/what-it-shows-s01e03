@@ -4,13 +4,13 @@ title: '#4471 · two date causes'
 owner: Michal Knasiecki
 status: proposed
 reviewed: 2026-10-28
-signature: 'Michal Knasiecki'
+signature: 'v1.eyJzdWIiOiIxNjkyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTYwMjAsImV4cCI6MTc5MzMwMjQyMH0.vTt26Y62IaXRZCgpt3tJXHulzaDg8Sq1FsQtFt7-jeA'
 ---
 
 <script>
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 
-  const signature = 'Michal Knasiecki';
+  const signature = 'v1.eyJzdWIiOiIxNjkyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTYwMjAsImV4cCI6MTc5MzMwMjQyMH0.vTt26Y62IaXRZCgpt3tJXHulzaDg8Sq1FsQtFt7-jeA';
 </script>
 
 Ticket #4471 says 412 reports were merged as one issue. The export contains 427 rows because its pages overlap; 15 report IDs repeat identically. Counting each ID once leaves 412 reports and **two causes**, not one.
