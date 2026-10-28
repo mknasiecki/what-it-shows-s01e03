@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · two date causes'
 owner: Michal Knasiecki
-status: proposed
+status: known
 reviewed: 2026-10-28
 signature: 'v1.eyJzdWIiOiIxNjkyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTYwMjAsImV4cCI6MTc5MzMwMjQyMH0.vTt26Y62IaXRZCgpt3tJXHulzaDg8Sq1FsQtFt7-jeA'
 ---
@@ -22,6 +22,10 @@ Ticket #4471 says 412 reports were merged as one issue. The export contains 427 
 ## booking-v3 hint conflicts with tenant date order
 
 **33 reports** belong to this cause, all from booking forms at copper.studio, alder.physio, and pale.harbour. booking-v3 displays `MM/DD/YYYY`, but the form interprets dates in the tenant's day-first order. People follow the hint and the form reads a different date. For example, R-41230 says a client came on 1 June instead of 6 January.
+
+## Engineering update · 5 October
+
+The desk closed #4471 on 5 October. The parser problem was fixed by `fix(dates): parse dd/mm for eu locales`. The booking-v3 hint problem will not be fixed because the booking-v3 form was retired.
 
 ## Triage
 

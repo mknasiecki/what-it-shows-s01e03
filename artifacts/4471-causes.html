@@ -58,7 +58,7 @@
         <h1>#4471 · two date causes</h1>
         <p class="meta">
           <span>owner <b>Michal Knasiecki</b></span>
-          <span class="status">proposed</span>
+          <span class="status">known</span>
           <span>reviewed 2026-10-28 · 0 days ago</span>
         </p>
       </header>
@@ -70,6 +70,9 @@
 
         <h2>booking-v3 hint conflicts with tenant date order</h2>
         <p><strong>33 reports</strong> belong to this cause, all from booking forms at copper.studio, alder.physio, and pale.harbour. booking-v3 displays <code>MM/DD/YYYY</code>, but the form interprets dates in the tenant's day-first order. People follow the hint and the form reads a different date. For example, R-41230 says a client came on 1 June instead of 6 January.</p>
+
+        <h2>Engineering update · 5 October</h2>
+        <p>The desk closed #4471 on 5 October. The parser problem was fixed by <code>fix(dates): parse dd/mm for eu locales</code>. The booking-v3 hint problem will not be fixed because the booking-v3 form was retired.</p>
 
         <h2>Triage</h2>
         <p>Use the report ID to deduplicate overlapping export pages, then classify using the tenant locale, channel, and form version. The intake tag and subject line are not reliable cause labels: reports in each cause carry both intake tags, and many different subjects occur in both groups. The five reports noted as one-day moves remain in the parser group under this classification; they do not form a third cause in the export's cause logic.</p>
